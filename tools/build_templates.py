@@ -85,7 +85,7 @@ def templates():
                 "icon": [{"width": "19px"}],
                 "name": [{"font-size": "13px"}, {"color": "var(--secondary-text-color)"}],
                 "state": [{"justify-self": "start"}, {"text-align": "left"}, {"font-size": js("return reason ? '16px' : 'var(--harmony-value-size,26px)';")}, {"font-weight": 500}, {"line-height": "1.25"}, {"letter-spacing": "-0.03em"}, {"color": "var(--harmony-tone)"}, {"white-space": "normal"}],
-                "label": [{"align-self": "end"}, {"background": "var(--harmony-footer-surface)"}, {"color": "var(--harmony-tone)"}, {"margin": "0 calc(-1 * var(--harmony-card-padding,16px))"}, {"width": "calc(100% + 2 * var(--harmony-card-padding,16px))"}, {"padding": "8px var(--harmony-card-padding,16px)"}, {"font-size": "var(--harmony-secondary-size,12px)"}, {"min-height": "33px"}, {"box-sizing": "border-box"}],
+                "label": [{"align-self": "end"}, {"background": "var(--harmony-footer-surface)"}, {"color": "var(--harmony-tone)"}, {"margin": "0 calc(-1 * var(--harmony-card-padding,16px))"}, {"width": "calc(100% + 2 * var(--harmony-card-padding,16px))"}, {"max-width": "none"}, {"padding": "8px var(--harmony-card-padding,16px)"}, {"font-size": "var(--harmony-secondary-size,12px)"}, {"min-height": "33px"}, {"box-sizing": "border-box"}],
             },
         },
     }

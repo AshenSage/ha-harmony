@@ -20,7 +20,7 @@ PALETTES = {
 }
 
 TOKENS = {
-    "harmony-version": "1.0.0",
+    "harmony-version": "1.0.1",
     "harmony-card-radius": "22px",
     "harmony-card-padding": "16px",
     "harmony-gap": "12px",
@@ -162,7 +162,7 @@ def build():
         })
         themes[name] = theme
     (ROOT / "themes/harmony.yaml").write_text(
-        "# Harmony 1.0.0 – beide Farbvarianten in einer HACS-Theme-Datei.\n"
+        "# Harmony 1.0.1 – beide Farbvarianten in einer HACS-Theme-Datei.\n"
         "# Erzeugt mit tools/build_theme.py.\n" + yaml.safe_dump(themes, sort_keys=False, allow_unicode=True, width=120), encoding="utf-8"
     )
 

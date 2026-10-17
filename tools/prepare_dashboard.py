@@ -132,7 +132,7 @@ def metric_card(card, kind):
 
 def prepare(dashboard, theme):
     result = copy.deepcopy(dashboard)
-    counts = {"cards": 0, "metric_cards": 0, "styles": 0, "masked_alignment_repaired": 0}
+    counts = {"cards": 0, "metric_cards": 0, "styles": 0, "masked_alignment_repaired": 0, "duplicate_export_cards_removed": 0}
     base_templates = result.setdefault("button_card_templates", {})
     # Retain existing named templates and logic, replacing only their presentation.
     base_templates.update(templates())
@@ -229,6 +229,37 @@ def prepare(dashboard, theme):
     result["views"] = walk(result.get("views", []))
     for view in result["views"]:
         view["theme"] = theme
+        # Remove an exact duplicate status-only section if a complete export
+        # control block already contains the same status card in this view.
+        # Other repeated cards and the actual export/download controls remain.
+        def contains(node, predicate):
+            if isinstance(node, dict):
+                return predicate(node) or any(contains(v, predicate) for v in node.values())
+            if isinstance(node, list):
+                return any(contains(v, predicate) for v in node)
+            return False
+        sections = view.get("sections", [])
+        kept = []
+        for section in sections:
+            cards = section.get("cards", [])
+            standalone = len(cards) == 1 and set(section) <= {"type", "cards", "column_span"}
+            candidate = cards[0] if standalone else {}
+            is_export_status = (candidate.get("type") == "custom:button-card"
+                                and candidate.get("entity") == "sensor.ha_pruefexport"
+                                and candidate.get("tap_action") == {"action": "more-info"})
+            duplicate = is_export_status and any(
+                other is not section
+                and contains(other, lambda n: n == candidate)
+                and contains(other, lambda n: n.get("service") == "ha_pruefexport.export"
+                             or n.get("perform_action") == "ha_pruefexport.export")
+                for other in sections
+            )
+            if duplicate:
+                counts["duplicate_export_cards_removed"] += 1
+            else:
+                kept.append(section)
+        if "sections" in view:
+            view["sections"] = kept
     # Only layout properties in original button templates are standardized.
     for key in ["ob_door", "ob_quick"]:
         if key not in base_templates:
