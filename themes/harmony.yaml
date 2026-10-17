@@ -1,7 +1,7 @@
-# Harmony 1.0.0 – beide Farbvarianten in einer HACS-Theme-Datei.
+# Harmony 1.0.1 – beide Farbvarianten in einer HACS-Theme-Datei.
 # Erzeugt mit tools/build_theme.py.
 Harmony Blue:
-  harmony-version: 1.0.0
+  harmony-version: 1.0.1
   harmony-card-radius: 22px
   harmony-card-padding: 16px
   harmony-gap: 12px
@@ -133,7 +133,7 @@ Harmony Blue:
     dark:
       primary-color: '#b2ddfa'
 Harmony Green:
-  harmony-version: 1.0.0
+  harmony-version: 1.0.1
   harmony-card-radius: 22px
   harmony-card-padding: 16px
   harmony-gap: 12px

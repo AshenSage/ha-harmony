@@ -1,5 +1,11 @@
 # Änderungen
 
+## 1.0.1 – 17.10.2026
+
+- Statusfläche der Messwertkarten über die volle Kartenbreite: die von button-card gesetzte maximale Label-Breite wird ausdrücklich aufgehoben.
+- Das Vorbereitungswerkzeug entfernt eine exakt doppelte, alleinstehende Prüfexport-Statuskarte, wenn dieselbe Anzeige bereits im vollständigen Exportblock mit Bedienelementen vorhanden ist.
+- Die Korrekturen betreffen die Dashboard-Vorlage; bereits gespeicherte Dashboard-YAML einmalig anpassen.
+
 ## 1.0.0 – 16.10.2026
 
 - Harmony Blue und Harmony Green in einer HACS-Theme-Datei.

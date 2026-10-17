@@ -12,7 +12,7 @@ auf beiden HA-Instanzen gleich installiert. Die Farbwelt entspricht der dunklen,
 getönten Gestaltung: ruhige Grundflächen, sanfte Verläufe, farbige Iconflächen,
 lesbare Hauptwerte und abgesetzte Status- bzw. Bedienbereiche.
 
-Version **1.0.0** · Home Assistant **2026.10.0+**.
+Version **1.0.1** · Home Assistant **2026.10.0+**.
 
 ## Installation
 
